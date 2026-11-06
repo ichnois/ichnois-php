@@ -223,7 +223,7 @@ final class Dsn implements \Stringable
     }
 
     /**
-     * Returns the base url to Sentry from the DSN.
+     * Returns the base url to Sentry/Ichnois from the DSN.
      */
     private function getBaseEndpointUrl(): string
     {
@@ -233,8 +233,17 @@ final class Dsn implements \Stringable
             $url .= ':' . $this->port;
         }
 
-        if ($this->path !== null) {
-            $url .= $this->path;
+        $path = $this->path ?? '';
+        // If path already ends with '/api' (e.g. https://host/api/project_id),
+        // strip trailing '/api' so appending '/api/' below does not produce '/api/api/'.
+        if ($path === '/api') {
+            $path = '';
+        } elseif (substr($path, -4) === '/api') {
+            $path = substr($path, 0, -4);
+        }
+
+        if ($path !== '') {
+            $url .= $path;
         }
 
         $url .= '/api/' . $this->projectId;

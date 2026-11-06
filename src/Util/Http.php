@@ -23,6 +23,17 @@ final class Http
         return 'Sentry ' . implode(', ', $authHeader);
     }
 
+    public static function getIchnoisAuthHeader(Dsn $dsn, string $sdkIdentifier, string $sdkVersion): string
+    {
+        $authHeader = [
+            'ichnois_version=' . Client::PROTOCOL_VERSION,
+            'ichnois_client=' . $sdkIdentifier . '/' . $sdkVersion,
+            'ichnois_key=' . $dsn->getPublicKey(),
+        ];
+
+        return 'Ichnois ' . implode(', ', $authHeader);
+    }
+
     /**
      * @return string[]
      */
@@ -31,6 +42,7 @@ final class Http
         return [
             'Content-Type: application/x-sentry-envelope',
             'X-Sentry-Auth: ' . self::getSentryAuthHeader($dsn, $sdkIdentifier, $sdkVersion),
+            'X-Ichnois-Auth: ' . self::getIchnoisAuthHeader($dsn, $sdkIdentifier, $sdkVersion),
         ];
     }
 

@@ -1514,15 +1514,15 @@ final class Options
              */
             'attach_metric_code_locations' => false,
             'context_lines' => 5,
-            'environment' => $_SERVER['SENTRY_ENVIRONMENT'] ?? null,
+            'environment' => $_SERVER['ICHNOIS_ENVIRONMENT'] ?? $_SERVER['SENTRY_ENVIRONMENT'] ?? null,
             'logger' => null,
-            'spotlight' => $_SERVER['SENTRY_SPOTLIGHT'] ?? null,
+            'spotlight' => $_SERVER['ICHNOIS_SPOTLIGHT'] ?? $_SERVER['SENTRY_SPOTLIGHT'] ?? null,
             /**
              * @deprecated since version 4.11. To be removed in 5.0. You may use `spotlight` instead.
              */
             'spotlight_url' => 'http://localhost:8969',
-            'release' => $_SERVER['SENTRY_RELEASE'] ?? $_SERVER['AWS_LAMBDA_FUNCTION_VERSION'] ?? null,
-            'dsn' => $_SERVER['SENTRY_DSN'] ?? null,
+            'release' => $_SERVER['ICHNOIS_RELEASE'] ?? $_SERVER['SENTRY_RELEASE'] ?? $_SERVER['AWS_LAMBDA_FUNCTION_VERSION'] ?? null,
+            'dsn' => $_SERVER['ICHNOIS_DSN'] ?? $_SERVER['SENTRY_DSN'] ?? null,
             'org_id' => null,
             'server_name' => gethostname(),
             'ignore_exceptions' => [],

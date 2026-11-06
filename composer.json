@@ -1,8 +1,9 @@
 {
-    "name": "sentry/sentry",
+    "name": "ichnois/ichnois",
     "type": "library",
-    "description": "PHP SDK for Sentry (http://sentry.io)",
+    "description": "PHP SDK for Ichnois (https://ichnois-h2jw.onrender.com)",
     "keywords": [
+        "ichnois",
         "sentry",
         "log",
         "logging",
@@ -13,12 +14,12 @@
         "profiling",
         "tracing"
     ],
-    "homepage": "http://sentry.io",
+    "homepage": "https://github.com/ichnois/ichnois-php",
     "license": "MIT",
     "authors": [
         {
-            "name": "Sentry",
-            "email": "accounts@sentry.io"
+            "name": "Ichnois",
+            "email": "hello.ichnois@gmail.com"
         }
     ],
     "require": {
@@ -58,14 +59,17 @@
     },
     "autoload": {
         "files": [
-            "src/functions.php"
+            "src/functions.php",
+            "src/ichnois_functions.php"
         ],
         "psr-4": {
+            "Ichnois\\": "src/",
             "Sentry\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "Ichnois\\Tests\\": "tests/",
             "Sentry\\Tests\\": "tests/"
         }
     },

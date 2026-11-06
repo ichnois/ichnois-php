@@ -30,12 +30,17 @@ class Client implements ClientInterface
     /**
      * The identifier of the SDK.
      */
-    public const SDK_IDENTIFIER = 'sentry.php';
+    public const SDK_IDENTIFIER = 'ichnois.php';
+
+    /**
+     * Legacy SDK identifier for backwards compatibility.
+     */
+    public const SENTRY_SDK_IDENTIFIER = 'sentry.php';
 
     /**
      * The version of the SDK.
      */
-    public const SDK_VERSION = '4.36.0';
+    public const SDK_VERSION = '1.0.0';
 
     /**
      * Regex pattern to detect if a string is a regex pattern (starts and ends with / optionally followed by flags).
