@@ -59,6 +59,7 @@
     },
     "autoload": {
         "files": [
+            "src/aliases.php",
             "src/functions.php",
             "src/ichnois_functions.php"
         ],

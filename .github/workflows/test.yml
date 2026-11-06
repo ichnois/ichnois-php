@@ -35,3 +35,4 @@ jobs:
 
       - name: Run PHPUnit Tests
         run: vendor/bin/phpunit --verbose tests/IchnoisFacadeTest.php tests/DsnTest.php
+

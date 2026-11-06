@@ -80,10 +80,19 @@ final class Ichnois
 
     /**
      * Adds a breadcrumb to the current scope.
+     *
+     * @param Breadcrumb|string $category
+     * @param array<string, mixed> $metadata
      */
-    public static function addBreadcrumb(Breadcrumb $breadcrumb): bool
-    {
-        return \Sentry\addBreadcrumb($breadcrumb);
+    public static function addBreadcrumb(
+        $category,
+        ?string $message = null,
+        array $metadata = [],
+        string $level = Breadcrumb::LEVEL_INFO,
+        string $type = Breadcrumb::TYPE_DEFAULT,
+        ?float $timestamp = null
+    ): void {
+        \Sentry\addBreadcrumb($category, $message, $metadata, $level, $type, $timestamp);
     }
 
     /**

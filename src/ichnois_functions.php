@@ -36,9 +36,15 @@ function captureEvent(Event $event, ?EventHint $hint = null): ?EventId
     return Ichnois::captureEvent($event, $hint);
 }
 
-function addBreadcrumb(Breadcrumb $breadcrumb): bool
-{
-    return Ichnois::addBreadcrumb($breadcrumb);
+function addBreadcrumb(
+    $category,
+    ?string $message = null,
+    array $metadata = [],
+    string $level = \Sentry\Breadcrumb::LEVEL_INFO,
+    string $type = \Sentry\Breadcrumb::TYPE_DEFAULT,
+    ?float $timestamp = null
+): void {
+    Ichnois::addBreadcrumb($category, $message, $metadata, $level, $type, $timestamp);
 }
 
 function configureScope(callable $callback): void
